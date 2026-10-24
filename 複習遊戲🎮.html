@@ -1,0 +1,1420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-HK"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</p>
+<p class="p1">&lt;title&gt;粵語闖關樂園 · 澳門生活粵語&lt;/title&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--brown: #8B5E3C;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--ink: #2B2B2B;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--jyut: #1D3557;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--green: #2A9D8F;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--red: #E63946;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--gold: #FFD166;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--accent: #4A90D9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--accent-light: #EEF5FF;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>html, body { height: 100%; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: "KaiTi", "DFKai-SB", "BiauKai", "楷体", "Noto Serif HK", serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(160deg, #FFF8E7 0%, #FFE9CF 45%, #FFD9B3 100%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bg-deco { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.bg-deco span {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: absolute; font-size: 52px; opacity: 0.12;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>animation: floatY 14s ease-in-out infinite; user-select: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes floatY {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>0%, 100% { transform: translateY(0) rotate(-6deg); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>50% { transform: translateY(-24px) rotate(6deg); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.screen {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: none; position: relative; z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 100vh; padding: 28px 20px 50px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width: 1280px; margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.screen.active { display: block; animation: fadeIn 0.4s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 首頁 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.home-header { text-align: center; margin-bottom: 30px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.home-header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: clamp(36px, 6vw, 64px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--brown); letter-spacing: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-shadow: 2px 2px 0 #fff, 5px 5px 0 rgba(139,94,60,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.home-sub { font-size: clamp(18px, 2.4vw, 26px); color: var(--jyut); margin-bottom: 10px; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.home-tip {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-block; background: rgba(255,255,255,0.75);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 2px dashed var(--brown); border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 8px 22px; font-size: clamp(14px, 1.9vw, 19px); color: var(--brown);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.home-actions { display: flex; justify-content: center; gap: 14px; margin-bottom: 26px; flex-wrap: wrap; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-grid {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>gap: 24px; margin-bottom: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border-radius: 24px; padding: 26px 22px 22px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; cursor: pointer; border: 3px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 8px 24px rgba(139,94,60,0.12);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.25s ease; position: relative; overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card::before {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: ''; position: absolute; top: 0; left: 0; right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 9px; background: var(--card-accent, #4A90D9);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transform: translateY(-7px) scale(1.02);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 18px 40px rgba(139,94,60,0.22);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-color: var(--card-accent, #4A90D9);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-emoji { font-size: 56px; display: block; margin: 8px 0 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-name { font-size: clamp(22px, 2.4vw, 30px); font-weight: bold; color: var(--brown); margin-bottom: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-sub { font-size: clamp(14px, 1.6vw, 17px); color: #8a7a6a; margin-bottom: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-stars { font-size: 26px; letter-spacing: 4px; min-height: 32px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-stars .dim { opacity: 0.2; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-badge {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: absolute; top: 14px; right: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 14px; padding: 4px 12px; border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--card-accent, #4A90D9); color: #fff; opacity: 0.92;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.level-card .lv-best { font-size: 14px; color: var(--green); margin-top: 6px; min-height: 20px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.home-footer {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; font-size: clamp(15px, 1.9vw, 20px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--brown); padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-top: 2px dashed rgba(139,94,60,0.25);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 遊戲頁 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.game-header {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; gap: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 8px; flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.icon-btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border: 2.5px solid var(--brown); color: var(--brown);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 54px; height: 54px; border-radius: 16px; font-size: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; font-family: inherit; transition: all 0.2s; flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.icon-btn:hover { background: var(--brown); color: #fff; transform: scale(1.06); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.game-title-wrap { flex: 1; min-width: 180px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.game-title-wrap h2 { font-size: clamp(24px, 3.2vw, 40px); color: var(--brown); line-height: 1.2; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.game-title-wrap p { font-size: clamp(14px, 1.7vw, 18px); color: #8a7a6a; margin-top: 3px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.timer-box {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border: 2.5px solid var(--brown); border-radius: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 6px 16px; font-size: clamp(18px, 2.2vw, 26px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold; color: var(--brown);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: "Courier New", monospace; flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-width: 96px; text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-wrap { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.progress-bar {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: clamp(100px, 16vw, 220px); height: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: rgba(255,255,255,0.85); border: 2.5px solid var(--brown);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 999px; overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#progressFill {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 100%; width: 0%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(90deg, var(--accent), var(--green));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 999px; transition: width 0.4s ease;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>#progressText { font-size: 17px; color: var(--brown); font-weight: bold; min-width: 56px; text-align: right; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.instruction {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; font-size: clamp(16px, 2vw, 21px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--jyut); background: rgba(255,255,255,0.7);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px; padding: 12px 18px; margin: 16px 0 22px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-left: 6px solid var(--accent); font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 配對棋盤 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.board { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.column { display: flex; flex-direction: column; gap: 14px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border: 3px solid #EAD9C7; border-radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 18px 20px; font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: clamp(17px, 2.1vw, 25px); line-height: 1.4;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--ink); cursor: pointer; text-align: left; width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 80px; display: flex; align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 5px 14px rgba(139,94,60,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s, background 0.18s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>word-break: break-word;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card:hover:not(.matched) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transform: translateY(-3px); border-color: var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 10px 24px rgba(139,94,60,0.16);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card.selected {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-color: var(--accent); background: var(--accent-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 0 0 5px rgba(74,144,217,0.22);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card.matched {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-color: var(--green); background: #E9F9F5; color: #1B7A6E;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: default; box-shadow: 0 5px 14px rgba(42,157,143,0.15);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card.matched .card-text::after { content: ' ✓'; color: var(--green); font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card.wrong {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-color: var(--red) !important; background: #FFEBEE !important;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>animation: shake 0.5s ease;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes shake {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>0%, 100% { transform: translateX(0); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>20% { transform: translateX(-9px); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>40% { transform: translateX(9px); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>60% { transform: translateX(-7px); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>80% { transform: translateX(7px); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card-jyut .card-text {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: "Courier New", "Noto Sans Mono", monospace;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--jyut); font-size: 0.92em; letter-spacing: 0.3px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.card-small { font-size: clamp(15px, 1.8vw, 21px); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 對話重組 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-wrap { display: flex; flex-direction: column; gap: 18px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-section-title {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: clamp(17px, 2vw, 22px); color: var(--brown);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold; margin-bottom: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-target {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: rgba(255,255,255,0.7); border: 3px dashed var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 90px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-target .empty-hint {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; color: #a99; font-size: clamp(15px, 1.8vw, 19px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 18px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-pool { display: flex; flex-direction: column; gap: 12px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border: 3px solid #EAD9C7; border-radius: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 14px 18px; display: flex; gap: 12px; align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; transition: all 0.18s; box-shadow: 0 4px 12px rgba(139,94,60,0.07);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line:hover:not(.done) { transform: translateY(-2px); border-color: var(--accent); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line .role-tag {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex-shrink: 0; font-size: clamp(13px, 1.5vw, 16px); font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #fff; background: var(--accent); border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 5px 12px; white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line .line-body { flex: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line .line-text { font-size: clamp(16px, 2vw, 23px); line-height: 1.4; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line .line-jyut {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: "Courier New", monospace; color: var(--jyut);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: clamp(13px, 1.6vw, 17px); margin-top: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line.done {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #E9F9F5; border-color: var(--green); cursor: default;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line.done .role-tag { background: var(--green); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-line.wrong { border-color: var(--red) !important; background: #FFEBEE !important; animation: shake 0.5s ease; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.order-num {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--green); color: #fff; font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 17px; margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 聽力題 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.listen-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; flex-direction: column; align-items: center; gap: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.speaker-btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: clamp(130px, 18vw, 180px); height: clamp(130px, 18vw, 180px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 50%; border: 6px solid var(--accent);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; font-size: clamp(56px, 8vw, 80px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; transition: all 0.2s; box-shadow: 0 10px 30px rgba(74,144,217,0.3);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.speaker-btn:hover { transform: scale(1.06); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.speaker-btn.playing { animation: pulse 0.8s ease infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes pulse {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>0%, 100% { box-shadow: 0 0 0 0 rgba(74,144,217,0.5); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>50% { box-shadow: 0 0 0 20px rgba(74,144,217,0); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.listen-hint { font-size: clamp(15px, 1.8vw, 19px); color: #8a7a6a; text-align: center; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.options {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: grid; grid-template-columns: 1fr 1fr; gap: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%; max-width: 820px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border: 3px solid #EAD9C7; border-radius: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px 18px; font-family: "Courier New", monospace;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: clamp(18px, 2.2vw, 26px); color: var(--jyut);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; transition: all 0.18s; font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 5px 14px rgba(139,94,60,0.08); word-break: break-word;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn:hover:not(:disabled) { transform: translateY(-3px); border-color: var(--accent); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn.correct { border-color: var(--green); background: #E9F9F5; color: #1B7A6E; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn.wrong { border-color: var(--red); background: #FFEBEE; animation: shake 0.5s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.option-btn:disabled { cursor: default; opacity: 0.9; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- Toast ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: fixed; left: 50%; top: 24px; transform: translate(-50%, -150%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: min(94vw, 700px); background: #fff; border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 18px 22px; display: flex; gap: 16px; align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 14px 44px rgba(0,0,0,0.24); z-index: 400;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: transform 0.35s cubic-bezier(.2,1.2,.4,1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 3.5px solid var(--green);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast.show { transform: translate(-50%, 0); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast.err { border-color: var(--red); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast-icon {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 44px; height: 44px; border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 26px; color: #fff; font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--green); flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast.err .toast-icon { background: var(--red); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast-text { font-size: clamp(16px, 1.9vw, 20px); line-height: 1.55; color: var(--ink); padding-top: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.toast-text strong { color: var(--jyut); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 勝利結算 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.modal-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: fixed; inset: 0; background: rgba(40, 25, 15, 0.58);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: none; align-items: center; justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>z-index: 500; padding: 20px; backdrop-filter: blur(4px);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.modal-overlay.show { display: flex; animation: fadeIn 0.3s ease; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-card {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(160deg, #FFFDF7 0%, #FFF3E0 100%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 30px; padding: 36px 30px 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: min(94vw, 500px); text-align: center; position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 24px 60px rgba(0,0,0,0.35);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 4px solid var(--gold);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>animation: popIn 0.5s cubic-bezier(.2,1.4,.4,1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow: hidden; max-height: 92vh; overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes popIn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>from { transform: scale(0.7); opacity: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>to { transform: scale(1); opacity: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-emoji { font-size: 68px; margin-bottom: 6px; animation: bounce 1s ease infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-card h2 { font-size: 30px; color: var(--brown); margin-bottom: 10px; letter-spacing: 1px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-stars { font-size: 46px; letter-spacing: 9px; margin: 10px 0 8px; min-height: 56px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-stars span { display: inline-block; opacity: 0; transform: scale(0.3); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-stars span.on { animation: starPop 0.5s cubic-bezier(.2,1.6,.4,1) forwards; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes starPop { to { opacity: 1; transform: scale(1); } }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-stars .dim { opacity: 0.18 !important; transform: scale(1); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-msg { font-size: 17px; color: #7a6a5a; margin: 8px 0 6px; line-height: 1.6; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-detail {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 16px; color: var(--jyut); background: rgba(255,255,255,0.75);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px; padding: 12px 16px; margin: 14px 0 16px; line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-detail strong { color: var(--brown); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.name-row { display: flex; gap: 10px; margin: 12px 0 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.name-input {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex: 1; font-family: inherit; font-size: 17px; padding: 12px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px; border: 2.5px solid var(--brown); outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.name-input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(74,144,217,0.18); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: inherit; font-size: 17px; padding: 13px 26px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 14px; border: none; cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.2s; font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-primary {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(135deg, #F4A261, #E76F51); color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 6px 18px rgba(231,111,81,0.35);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(231,111,81,0.45); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-ghost { background: #fff; color: var(--brown); border: 2.5px solid var(--brown); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-ghost:hover { background: var(--brown); color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-gold { background: linear-gradient(135deg, #FFD166, #F4A261); color: #5C3A21; box-shadow: 0 6px 18px rgba(244,162,97,0.4); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.btn-gold:hover { transform: translateY(-2px); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.win-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>.confetti-wrap { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.confetti {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: absolute; top: -20px; width: 10px; height: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 2px; animation: confettiFall linear forwards;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@keyframes confettiFall {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>to { transform: translateY(620px) rotate(720deg); opacity: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 排行榜 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-header h1 { font-size: clamp(28px, 4vw, 44px); color: var(--brown); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-block {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #fff; border-radius: 22px; padding: 22px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 22px; box-shadow: 0 8px 24px rgba(139,94,60,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-left: 8px solid var(--rank-accent, #4A90D9);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-block h3 { font-size: clamp(20px, 2.4vw, 28px); color: var(--brown); margin-bottom: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-table { width: 100%; border-collapse: collapse; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-table th, .rank-table td {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 12px 10px; text-align: left; font-size: clamp(15px, 1.8vw, 19px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-bottom: 1px solid #eee;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-table th { color: #8a7a6a; font-weight: bold; font-size: clamp(13px, 1.5vw, 16px); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-table tr:last-child td { border-bottom: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-table .medal { font-size: 22px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.rank-empty { color: #a99; font-size: 16px; padding: 12px 0; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>/* ---------- 手機 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">  </span>@media (max-width: 680px) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.screen { padding: 18px 12px 34px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.board { gap: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { padding: 12px 13px; min-height: 66px; border-radius: 15px; border-width: 2.5px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast { top: 12px; padding: 13px 15px; gap: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toast-icon { width: 34px; height: 34px; font-size: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.win-card { padding: 26px 18px 22px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.win-card h2 { font-size: 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.win-stars { font-size: 36px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn { font-size: 15px; padding: 11px 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.options { grid-template-columns: 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.timer-box { font-size: 18px; min-width: 82px; padding: 5px 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.game-title-wrap h2 { font-size: 22px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.order-line { padding: 11px 13px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="bg-deco" id="bgDeco"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ==================== 首頁 ==================== --&gt;</p>
+<p class="p1">&lt;section id="home" class="screen active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="home-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🎡 粵語闖關樂園&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="home-sub"&gt;澳門生活粵語 · 七關挑戰&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="home-tip"&gt;配對正確得星星 · 計時挑戰 · 錯題可重練&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="home-actions"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-ghost" onclick="showRank()"&gt;🏆 排行榜&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-ghost" onclick="resetAll()"&gt;🗑️ 清除紀錄&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="level-grid" id="levelGrid"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer class="home-footer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>唔使驚講錯，最緊要肯開口！&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;span style="font-family:'Courier New',monospace;font-size:15px;color:#1D3557;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>m4 sai2 geng1 gong2 co3, zeoi3 gan2 jiu3 hang2 hoi1 hau2!</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ==================== 遊戲頁 ==================== --&gt;</p>
+<p class="p1">&lt;section id="game" class="screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="game-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="icon-btn" id="backBtn" title="返回地圖"&gt;←&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="game-title-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2 id="gameTitle"&gt;&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="gameSub"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="timer-box" id="timer"&gt;00:00&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="progress-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="progress-bar"&gt;&lt;div id="progressFill"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span id="progressText"&gt;0 / 0&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p class="instruction" id="instruction"&gt;&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="board" class="board"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ==================== 排行榜 ==================== --&gt;</p>
+<p class="p1">&lt;section id="rank" class="screen"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="rank-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="icon-btn" onclick="backHome()"&gt;←&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;🏆 排行榜&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="rankContent"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ==================== Toast ==================== --&gt;</p>
+<p class="p1">&lt;div class="toast" id="toast"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="toast-icon"&gt;✓&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="toast-text"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ==================== 勝利結算 ==================== --&gt;</p>
+<p class="p1">&lt;div class="modal-overlay" id="winModal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="win-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="confetti-wrap" id="confettiWrap"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="win-emoji" id="winEmoji"&gt;🎉&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 id="winTitle"&gt;恭喜闖關成功！&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="win-stars" id="winStars"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="win-msg" id="winMsg"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="win-detail" id="winDetail"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="name-row" id="nameRow"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input class="name-input" id="nameInput" maxlength="12" placeholder="輸入你嘅名字" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-gold" id="saveScoreBtn"&gt;保存成績&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="win-buttons"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-primary" id="nextBtn"&gt;下一關 →&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-ghost" id="retryBtn"&gt;重練錯題&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-ghost" id="homeBtn"&gt;返回地圖&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>關卡資料</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">const LEVELS = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "match", emoji: "👋", name: "打招呼", subtitle: "第一課 · 問候與近況",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#4A90D9", accentLight: "#EEF5FF",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "點左邊嘅中文，再點右邊對應嘅粵拼。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pairs: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "你好！", right: "nei5 hou2!", tip: "「你好」係最基本嘅問候，任何時間都用得。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "早晨！", right: "zou2 san4!", tip: "「早晨」係早上見面嘅問候，好地道。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "好開心認識你！", right: "hou2 hoi1 sam1 sik1 nei5!", tip: "第一次見面，講呢句最啱。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "最近點樣呀？", right: "zeon3 gan6 dim2 joeng2 aa3?", tip: "問人近況，「點樣」＝怎麼樣。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "你呢？", right: "nei5 ne1?", tip: "答完人之後，要反問「你呢？」，對話先會繼續。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "放假去咗邊度玩呀？", right: "fong3 gaa3 heoi3 zo2 bin1 dou6 waan2 aa3?", tip: "問人放假去邊度玩，「邊度」＝哪裡。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "呢個學期忙唔忙呀？", right: "ni1 go3 hok6 kei4 mong4 m4 mong4 aa3?", tip: "問人學期忙唔忙，「忙唔忙」＝忙不忙。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "喺澳門生活慣唔慣呀？", right: "hai2 ou3 mun2 sang1 wut6 gwaan3 m4 gwaan3 aa3?", tip: "問人喺澳門生活適唔適應。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "覺得呢度點樣？", right: "gok3 dak1 ni1 dou6 dim2 joeng2?", tip: "問人覺得呢度點樣，「覺得」＝認為。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "唔使驚講錯，最緊要肯開口！", right: "m4 sai2 geng1 gong2 co3, zeoi3 gan2 jiu3 hang2 hoi1 hau2!", small: true, tip: "呢句係我哋嘅口號，鼓勵大家大膽講。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "match", emoji: "🌕", name: "中秋節", subtitle: "第二課 · 澳門中秋",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#9B5DE5", accentLight: "#F4ECFF",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "點左邊嘅中秋詞語，再點右邊對應嘅意思。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pairs: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "中秋節", right: "農曆八月十五", tip: "中秋節喺農曆八月十五，所以又叫「八月十五」。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "月餅", right: "中秋應節食品", tip: "月餅係中秋必食，象徵一家人團圓。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "兔仔燈", right: "漁家特色兔子燈籠", tip: "澳門漁家用竹篾紮兔仔燈，俾細路仔提住玩。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "迎月夜", right: "中秋前夜", tip: "澳門中秋「鬧」三日，第一晚叫迎月夜。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "賞月夜", right: "中秋當日", tip: "中秋正日叫賞月夜，一家人一齊賞月。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "追月夜", right: "中秋翌日", tip: "中秋第二日叫追月夜，繼續慶祝。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "團圓", right: "一家人齊齊整整", tip: "中秋節最重要嘅意義，就係一家人團圓。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "猜燈謎", right: "猜謎語遊戲", tip: "中秋公園有猜燈謎活動，好熱鬧。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "醉龍節", right: "澳門非遺節日", tip: "醉龍節係澳門鮮魚行嘅傳統，舞者邊行邊噴酒。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "match", emoji: "🥩", name: "街市避諱", subtitle: "第三課 · 豬潤與通勝",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#2A9D8F", accentLight: "#E9F9F5",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "點左邊嘅禁忌詞，再點右邊對應嘅正確叫法。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pairs: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "豬肝", right: "豬潤", tip: "「肝」同「乾」同音，唔好意頭，所以叫「豬潤」zyu1 jeon6。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "豬舌", right: "豬脷", tip: "「舌」同「蝕」同音，會蝕本，所以叫「豬脷」zyu1 lei6。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "牛舌", right: "牛脷", tip: "同豬舌一樣，「舌」唔好意頭，所以叫「牛脷」ngau4 lei6。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "豬血", right: "豬紅", tip: "「血」唔吉利，所以叫「豬紅」zyu1 hung4，取其喜慶。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "空屋", right: "吉屋", tip: "「空」同「凶」同音，所以叫「吉屋」gat1 uk1。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "空鋪", right: "吉鋪", tip: "同空屋一樣，空鋪叫「吉鋪」gat1 pou3。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "通書", right: "通勝", tip: "「書」同「輸」同音，所以叫「通勝」tung1 sing3。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "絲瓜", right: "勝瓜", tip: "「絲」同「輸」近音，所以叫「勝瓜」sing3 gwaa1，取勝利。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "苦瓜", right: "涼瓜", tip: "避開「苦」字，所以叫「涼瓜」loeng4 gwaa1。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "雞腎", right: "雞潤", tip: "「腎」避諱，所以叫「雞潤」gai1 jeon6。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "match", emoji: "🏥", name: "醫院睇病", subtitle: "第四課 · 症狀與粵拼",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#E63946", accentLight: "#FFEBEE",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "點左邊嘅症狀，再點右邊對應嘅粵拼。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pairs: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "頭痛", right: "tau4 tung3", tip: "「頭痛」＝頭部疼痛，tau4 係第4聲低降。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "喉嚨痛", right: "hau4 lung4 tung3", tip: "「喉嚨」讀 hau4 lung4，兩個字都係第4聲。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "肚痛", right: "tou5 tung3", tip: "「肚」讀 tou5，第5聲低升。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "發燒", right: "faat3 siu1", tip: "「發」係入聲 faat3，短促收尾；「燒」係第1聲 siu1。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "咳", right: "kat1", tip: "「咳」係入聲 kat1，短促收尾，唔好拖長。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "屙嘔", right: "o1 au2", tip: "「屙」＝腹瀉，「嘔」＝嘔吐。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "頭暈", right: "tau4 wan4", tip: "「暈」讀 wan4，第4聲低降。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "流鼻水", right: "lau4 bei6 seoi2", tip: "「鼻」係入聲 bei6，「水」係第2聲 seoi2。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "傷風", right: "soeng1 fung1", tip: "兩個字都係第1聲高平。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "感冒", right: "gam2 mou6", tip: "「感」第2聲高升，「冒」第6聲低平。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "match", emoji: "🍽️", name: "餐廳與酒店", subtitle: "第五課 · 點餐與訂房",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#8B5E3C", accentLight: "#F5EDE6",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "點左邊嘅詞語，再點右邊對應嘅粵拼。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pairs: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "餐牌", right: "caan1 paai2", tip: "「餐牌」就係菜單，入餐廳第一樣要攞嘅嘢。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "落單", right: "lok6 daan1", tip: "「落單」＝點菜，同侍應講你要咩。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "埋單", right: "maai4 daan1", tip: "「埋單」＝結帳，食完要講。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "走冰", right: "zau2 bing1", tip: "「走冰」＝唔要冰塊，係茶餐廳暗語。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "吉房", right: "gat1 fong2", tip: "「吉房」＝空房，避諱「空」＝「凶」。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "退房", right: "teoi3 fong2", tip: "「退房」＝check out，離開酒店時講。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "預訂", right: "jyu6 deng6", tip: "「預訂」＝提前訂房，jyu6 第6聲低平。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "入住", right: "jap6 zyu6", tip: "「入」係入聲 jap6，短促收尾。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "馬介休球", right: "maa5 gaai3 jau1 kau4", tip: "澳門葡式小食，鹽醃鱈魚做成波波。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ left: "葡撻", right: "pou4 taat1", tip: "葡式蛋撻，「撻」係入聲 taat1。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "order", emoji: "🗣️", name: "醫院對話重組", subtitle: "第四課 · 排好整段對話",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#F4A261", accentLight: "#FFF3E0",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "按正確順序點擊句子，排好整段醫院對話。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sequence: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "病人", text: "唔該，我想掛號。", jyut: "m4 goi1, ngo5 soeng2 gwaa3 hou6.", tip: "睇醫生第一步：掛號。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "護士", text: "有冇醫療咭？", jyut: "jau5 mou5 ji1 liu4 kaat1?", tip: "護士會問你有冇醫療卡。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "病人", text: "有，喺度。", jyut: "jau5, hai2 dou6.", tip: "回答並遞上醫療卡。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "護士", text: "去三號房等。", jyut: "heoi3 saam1 hou6 fong2 dang2.", tip: "護士指示你去邊度等。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "醫生", text: "你邊度唔舒服？", jyut: "nei5 bin1 dou6 m4 syu1 fuk6?", tip: "醫生問你邊度唔舒服。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "病人", text: "我頭痛、發燒，仲有咳。", jyut: "ngo5 tau4 tung3, faat3 siu1, zung6 jau5 kat1.", tip: "講出你嘅症狀。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "醫生", text: "你要食藥、多啲休息。", jyut: "nei5 jiu3 sik6 joek6, do1 di1 jau1 sik1.", tip: "醫生吩咐你食藥同休息。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ role: "病人", text: "唔該晒。", jyut: "m4 goi1 saai3.", tip: "最後講唔該晒，完成對話。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type: "listen", emoji: "🔊", name: "聽力挑戰", subtitle: "聽粵語 · 選正確粵拼",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>accent: "#06D6A0", accentLight: "#E6FFF8",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>instruction: "點喇叭聽粵語，再選出正確嘅粵拼。",</p>
+<p class="p1"><span class="Apple-converted-space">    </span>questions: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "頭痛", answer: "tau4 tung3", options: ["tau4 tung3", "tou5 tung3", "tau4 tung1", "hau4 tung3"], tip: "「頭」tau4 第4聲低降，「痛」tung3 第3聲中平。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "發燒", answer: "faat3 siu1", options: ["faat3 siu1", "faat3 siu3", "faan1 siu1", "faat6 siu1"], tip: "「發」入聲 faat3，「燒」第1聲 siu1。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "咳", answer: "kat1", options: ["kat1", "kaat1", "haai1", "kwaa1"], tip: "「咳」係入聲 kat1，短促收尾。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "埋單", answer: "maai4 daan1", options: ["maai4 daan1", "maai5 daan1", "maai4 daan3", "mai4 daan1"], tip: "「埋」maai4 第4聲，「單」daan1 第1聲。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "吉房", answer: "gat1 fong2", options: ["gat1 fong2", "gat1 fong4", "gwat1 fong2", "gat6 fong2"], tip: "「吉」入聲 gat1，「房」第2聲 fong2。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "豬潤", answer: "zyu1 jeon6", options: ["zyu1 jeon6", "zyu1 gon1", "zyu1 jeon2", "zyu6 jeon6"], tip: "「豬」zyu1 第1聲，「潤」jeon6 第6聲。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "走冰", answer: "zau2 bing1", options: ["zau2 bing1", "zau2 bing3", "zau6 bing1", "zaau2 bing1"], tip: "「走」zau2 第2聲高升，「冰」bing1 第1聲。" },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ text: "餐牌", answer: "caan1 paai2", options: ["caan1 paai2", "caan1 paai4", "caan3 paai2", "caam1 paai2"], tip: "「餐」caan1 第1聲，「牌」paai2 第2聲。" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>狀態</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">const state = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>levelIndex: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>mode: "normal",<span class="Apple-converted-space">        </span>// normal | retry</p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedLeft: null,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedRight: null,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>matched: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>wrong: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>locked: false,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>wrongIds: new Set(),</p>
+<p class="p1"><span class="Apple-converted-space">  </span>startTime: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>timerId: null,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>elapsed: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>orderIndex: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>qIndex: 0,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentPairs: [],<span class="Apple-converted-space">      </span>// retry 模式用</p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentSequence: [],</p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentQuestions: []</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>工具</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function $(id) { return document.getElementById(id); }</p>
+<p class="p2"><br></p>
+<p class="p1">function shuffle(arr) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const a = arr.slice();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (let i = a.length - 1; i &gt; 0; i--) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const j = Math.floor(Math.random() * (i + 1));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[a[i], a[j]] = [a[j], a[i]];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return a;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function fmtTime(s) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const m = Math.floor(s / 60);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ss = s % 60;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return String(m).padStart(2, "0") + ":" + String(ss).padStart(2, "0");</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>音效</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">let audioCtx = null;</p>
+<p class="p1">function playSound(ok) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const now = audioCtx.currentTime;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const notes = ok ? [523.25, 783.99] : [220, 164.81];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>notes.forEach((f, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const o = audioCtx.createOscillator();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const g = audioCtx.createGain();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>o.type = ok ? "sine" : "triangle";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>o.frequency.value = f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>g.gain.setValueAtTime(0.0001, now + i * 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>g.gain.exponentialRampToValueAtTime(0.18, now + i * 0.1 + 0.02);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>g.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.1 + 0.24);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>o.connect(g).connect(audioCtx.destination);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>o.start(now + i * 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>o.stop(now + i * 0.1 + 0.28);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (e) {}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>語音合成（粵語）</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">let voicesReady = false;</p>
+<p class="p1">function initVoices() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!("speechSynthesis" in window)) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.speechSynthesis.getVoices();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.speechSynthesis.onvoiceschanged = () =&gt; { voicesReady = true; };</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function pickCantoneseVoice() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!("speechSynthesis" in window)) return null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const voices = window.speechSynthesis.getVoices();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return voices.find(v =&gt; /yue|zh-HK|zh_HK|Cantonese|Hong Kong/i.test(v.lang + " " + v.name)) || null;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function speakCantonese(text, btn) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!("speechSynthesis" in window)) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(false, "你嘅瀏覽器唔支援語音合成，請用 Chrome 或 Edge。");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.speechSynthesis.cancel();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const u = new SpeechSynthesisUtterance(text);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>u.lang = "zh-HK";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>u.rate = 0.82;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>u.pitch = 1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const yue = pickCantoneseVoice();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (yue) u.voice = yue;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (btn) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>btn.classList.add("playing");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>u.onend = () =&gt; btn.classList.remove("playing");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>u.onerror = () =&gt; btn.classList.remove("playing");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.speechSynthesis.speak(u);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>背景裝飾</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">(function initBg() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const emojis = ["🍜", "🥟", "🌕", "🏮", "🥩", "🐟", "🏥", "🍽️", "🏨", "🍅", "🧋", "🥧", "🛏️", "💊", "👋", "🗣️", "🔊", "🏆"];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const wrap = $("bgDeco");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (let i = 0; i &lt; 20; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const s = document.createElement("span");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.textContent = emojis[Math.floor(Math.random() * emojis.length)];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.style.left = (Math.random() * 96) + "%";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.style.top = (Math.random() * 96) + "%";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.style.animationDelay = (Math.random() * 6) + "s";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.style.animationDuration = (10 + Math.random() * 8) + "s";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>s.style.fontSize = (34 + Math.random() * 34) + "px";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>wrap.appendChild(s);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">})();</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>排行榜存取</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function getRank() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return JSON.parse(localStorage.getItem("yq_rank_v2") || "{}");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} catch (e) { return {}; }</p>
+<p class="p1">}</p>
+<p class="p1">function saveRank(obj) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("yq_rank_v2", JSON.stringify(obj));</p>
+<p class="p1">}</p>
+<p class="p1">function getBestStars(levelIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = getRank();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const arr = r[levelIndex] || [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!arr.length) return 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return Math.max(...arr.map(x =&gt; x.stars));</p>
+<p class="p1">}</p>
+<p class="p1">function getBestTime(levelIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = getRank();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const arr = r[levelIndex] || [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!arr.length) return null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const best = arr.slice().sort((a, b) =&gt; a.time - b.time)[0];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return best.time;</p>
+<p class="p1">}</p>
+<p class="p1">function addScore(levelIndex, rec) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = getRank();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!r[levelIndex]) r[levelIndex] = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>r[levelIndex].push(rec);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>r[levelIndex].sort((a, b) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (b.stars !== a.stars) return b.stars - a.stars;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return a.time - b.time;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>r[levelIndex] = r[levelIndex].slice(0, 10);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>saveRank(r);</p>
+<p class="p1">}</p>
+<p class="p1">function resetAll() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!confirm("確定清除所有成績同排行榜紀錄？")) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.removeItem("yq_rank_v2");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderHome();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>首頁</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function renderHome() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const grid = $("levelGrid");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>grid.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>LEVELS.forEach((lv, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const stars = getBestStars(i);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const bestTime = getBestTime(i);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const card = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.className = "level-card";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.style.setProperty("--card-accent", lv.accent);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="lv-badge"&gt;第 ${i + 1} 關&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="lv-emoji"&gt;${lv.emoji}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="lv-name"&gt;${lv.name}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="lv-sub"&gt;${lv.subtitle}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="lv-stars"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${[1,2,3].map(n =&gt; `&lt;span class="${n &lt;= stars ? '' : 'dim'}"&gt;⭐&lt;/span&gt;`).join("")}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="lv-best"&gt;${bestTime !== null ? "⏱ 最佳 " + fmtTime(bestTime) : ""}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.addEventListener("click", () =&gt; startLevel(i, "normal"));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>grid.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>開始關卡</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function startLevel(index, mode, retryIds) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.levelIndex = index;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.mode = mode || "normal";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.selectedLeft = null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.selectedRight = null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.matched = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.wrong = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.locked = false;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.wrongIds = new Set();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.orderIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.qIndex = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lv = LEVELS[index];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 建立本局資料</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (lv.type === "match") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (mode === "retry" &amp;&amp; retryIds &amp;&amp; retryIds.length) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.currentPairs = retryIds.map(id =&gt; lv.pairs[id]);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.currentPairs = lv.pairs.slice();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else if (lv.type === "order") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.currentSequence = lv.sequence.slice();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else if (lv.type === "listen") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.currentQuestions = lv.questions.slice();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 主題色</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty("--accent", lv.accent);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty("--accent-light", lv.accentLight);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("gameTitle").textContent = lv.emoji + " " + lv.name + (state.mode === "retry" ? " · 錯題重練" : "");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("gameSub").textContent = lv.subtitle;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("instruction").textContent = "👉 " + lv.instruction;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateProgress();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 渲染棋盤</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const board = $("board");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.innerHTML = "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (lv.type === "match") renderMatch(board);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if (lv.type === "order") renderOrder(board);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>else if (lv.type === "listen") renderListen(board);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 切換畫面</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("home").classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("rank").classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("game").classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.scrollTo(0, 0);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 計時</p>
+<p class="p1"><span class="Apple-converted-space">  </span>startTimer();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>計時器</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function startTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>stopTimer();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.startTime = Date.now();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.elapsed = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("timer").textContent = "00:00";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.timerId = setInterval(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.elapsed = Math.floor((Date.now() - state.startTime) / 1000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("timer").textContent = fmtTime(state.elapsed);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}, 250);</p>
+<p class="p1">}</p>
+<p class="p1">function stopTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (state.timerId) clearInterval(state.timerId);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>state.timerId = null;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (state.startTime) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.elapsed = Math.floor((Date.now() - state.startTime) / 1000);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>渲染：配對</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function renderMatch(board) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.className = "board";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const leftCol = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>leftCol.className = "column";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>leftCol.id = "colLeft";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rightCol = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>rightCol.className = "column";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>rightCol.id = "colRight";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.appendChild(leftCol);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.appendChild(rightCol);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pairs = state.currentPairs;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lefts = shuffle(pairs.map((p, i) =&gt; ({ text: p.left, id: i, small: p.small })));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rights = shuffle(pairs.map((p, i) =&gt; ({ text: p.right, id: i, small: p.small })));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>lefts.forEach(item =&gt; leftCol.appendChild(makeCard(item, "left")));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>rights.forEach(item =&gt; rightCol.appendChild(makeCard(item, "right")));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.onclick = (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const card = e.target.closest(".card");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!card) return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.locked) return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (card.classList.contains("matched")) return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>onMatchCardClick(card);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function makeCard(item, side) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const btn = document.createElement("button");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>btn.className = "card" + (side === "right" ? " card-jyut" : "") + (item.small ? " card-small" : "");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>btn.dataset.side = side;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>btn.dataset.id = item.id;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>btn.innerHTML = `&lt;span class="card-text"&gt;${item.text}&lt;/span&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return btn;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function onMatchCardClick(card) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const side = card.dataset.side;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (side === "left") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.selectedLeft === card) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>card.classList.remove("selected");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.selectedLeft = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.selectedLeft) state.selectedLeft.classList.remove("selected");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.selectedLeft = card;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.classList.add("selected");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.selectedRight === card) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>card.classList.remove("selected");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.selectedRight = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.selectedRight) state.selectedRight.classList.remove("selected");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.selectedRight = card;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.classList.add("selected");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (state.selectedLeft &amp;&amp; state.selectedRight) checkMatch();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function checkMatch() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const l = state.selectedLeft;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = state.selectedRight;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pairs = state.currentPairs;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const idL = +l.dataset.id;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const idR = +r.dataset.id;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pair = pairs[idL];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (idL === idR) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>l.classList.remove("selected");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>r.classList.remove("selected");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>l.classList.add("matched");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>r.classList.add("matched");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.selectedLeft = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.selectedRight = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.matched++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateProgress();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>playSound(true);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(true, "啱喇！" + pair.tip);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.matched === pairs.length) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.locked = true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(showWin, 750);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.wrong++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.wrongIds.add(idL);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.locked = true;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>l.classList.add("wrong");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>r.classList.add("wrong");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>playSound(false);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(false, `唔啱喎。「${pair.left}」應該配「${pair.right}」。${pair.tip}`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>l.classList.remove("wrong", "selected");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>r.classList.remove("wrong", "selected");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.selectedLeft = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.selectedRight = null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.locked = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>渲染：對話重組</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function renderOrder(board) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.className = "order-wrap";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="order-section-title"&gt;✅ 已完成對話&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="order-target" id="orderTarget"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="empty-hint"&gt;由下面揀第一句開始，按正確順序排好。&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="order-section-title" style="margin-top:6px;"&gt;👇 點擊句子，按順序排好&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="order-pool" id="orderPool"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const pool = $("orderPool");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const seq = state.currentSequence;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const shuffled = shuffle(seq.map((s, i) =&gt; ({ ...s, id: i })));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>shuffled.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const div = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>div.className = "order-line";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>div.dataset.id = item.id;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>div.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="role-tag"&gt;${item.role}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="line-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="line-text"&gt;${item.text}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="line-jyut"&gt;${item.jyut}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>div.addEventListener("click", () =&gt; onOrderClick(div));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pool.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function onOrderClick(el) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (state.locked) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (el.classList.contains("done")) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const id = +el.dataset.id;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const seq = state.currentSequence;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (id === state.orderIndex) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 正確</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.classList.add("done");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.style.cursor = "default";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const target = $("orderTarget");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const hint = target.querySelector(".empty-hint");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (hint) hint.remove();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const item = seq[id];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const row = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>row.className = "order-line done";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>row.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="order-num"&gt;${state.orderIndex + 1}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span class="role-tag"&gt;${item.role}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="line-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="line-text"&gt;${item.text}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="line-jyut"&gt;${item.jyut}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>target.appendChild(row);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 從 pool 移除</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.remove();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.orderIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateProgress();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>playSound(true);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(true, `第 ${state.orderIndex} 句啱喇！${item.tip}`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (state.orderIndex === seq.length) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.locked = true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>setTimeout(showWin, 750);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 錯誤</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.wrong++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.wrongIds.add(state.orderIndex);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.locked = true;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.classList.add("wrong");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>playSound(false);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const correct = seq[state.orderIndex];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(false, `次序唔啱喎。下一個應該係「${correct.role}：${correct.text}」。`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>el.classList.remove("wrong");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.locked = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>渲染：聽力題</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function renderListen(board) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.className = "listen-wrap";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderListenQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.onclick = (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const btn = e.target.closest(".option-btn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!btn) return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>onListenAnswer(btn);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderListenQuestion() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const board = $("board");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const q = state.currentQuestions[state.qIndex];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!q) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 打亂選項</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const opts = shuffle(q.options.slice());</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>board.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="speaker-btn" id="speakerBtn" title="播放粵語"&gt;🔊&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="listen-hint"&gt;點喇叭聽粵語，再選出正確嘅粵拼&lt;br&gt;&lt;span style="font-size:0.85em;color:#b0a090;"&gt;（可重複點擊播放）&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="options" id="listenOptions"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const speaker = $("speakerBtn");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>speaker.addEventListener("click", () =&gt; speakCantonese(q.text, speaker));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const optWrap = $("listenOptions");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>opts.forEach(o =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const b = document.createElement("button");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>b.className = "option-btn";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>b.textContent = o;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>b.dataset.value = o;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>optWrap.appendChild(b);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 自動播放一次（若瀏覽器允許）</p>
+<p class="p1"><span class="Apple-converted-space">  </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>try { speakCantonese(q.text, speaker); } catch (e) {}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}, 350);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateProgress();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function onListenAnswer(btn) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (state.locked) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const q = state.currentQuestions[state.qIndex];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const val = btn.dataset.value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (val === q.answer) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>btn.classList.add("correct");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.locked = true;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>playSound(true);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(true, `啱喇！「${q.text}」讀 ${q.answer}。${q.tip}`);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.qIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.locked = false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (state.qIndex &gt;= state.currentQuestions.length) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showWin();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderListenQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}, 1300);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>btn.classList.add("wrong");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>btn.disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.wrong++;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>state.wrongIds.add(state.qIndex);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>playSound(false);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(false, `唔啱喎。正確答案係 ${q.answer}。${q.tip}`);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>進度</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function updateProgress() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lv = LEVELS[state.levelIndex];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let done = 0, total = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (lv.type === "match") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>done = state.matched;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>total = state.currentPairs.length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else if (lv.type === "order") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>done = state.orderIndex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>total = state.currentSequence.length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else if (lv.type === "listen") {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>done = state.qIndex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>total = state.currentQuestions.length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("progressText").textContent = done + " / " + total;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("progressFill").style.width = total ? (done / total * 100) + "%" : "0%";</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>Toast</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">let toastTimer = null;</p>
+<p class="p1">function showToast(ok, text) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const toast = $("toast");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast.className = "toast " + (ok ? "ok" : "err") + " show";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast.querySelector(".toast-icon").textContent = ok ? "✓" : "✗";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toast.querySelector(".toast-text").innerHTML = text;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>clearTimeout(toastTimer);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>toastTimer = setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>toast.classList.remove("show");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}, ok ? 3000 : 4000);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>勝利結算</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function showWin() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>stopTimer();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const lv = LEVELS[state.levelIndex];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const wrong = state.wrong;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const time = state.elapsed;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const stars = wrong &lt;= 1 ? 3 : wrong &lt;= 3 ? 2 : 1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const isRetry = state.mode === "retry";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winEmoji").textContent = stars === 3 ? "🏆" : stars === 2 ? "🎉" : "👍";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winTitle").textContent = stars === 3 ? "完美通關！" : stars === 2 ? "恭喜闖關成功！" : "過關喇！";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const starEls = [1, 2, 3].map(n =&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`&lt;span class="${n &lt;= stars ? 'on' : 'dim'}" style="animation-delay:${n * 0.18}s"&gt;⭐&lt;/span&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">  </span>).join("");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winStars").innerHTML = starEls;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winMsg").textContent =</p>
+<p class="p1"><span class="Apple-converted-space">    </span>stars === 3 ? "你全部一次過配對正確，好叻呀！" :</p>
+<p class="p1"><span class="Apple-converted-space">    </span>stars === 2 ? "表現唔錯，再練習一次可以攞三粒星！" :</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"完成咗喇！記住錯過嘅詞語，再挑戰一次。";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winDetail").innerHTML =</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`關卡：&lt;strong&gt;${lv.emoji} ${lv.name}&lt;/strong&gt;${isRetry ? "（錯題重練）" : ""}&lt;br&gt;` +</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`用時：&lt;strong&gt;${fmtTime(time)}&lt;/strong&gt;　錯誤：&lt;strong&gt;${wrong}&lt;/strong&gt; 次&lt;br&gt;` +</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`&lt;span style="color:#8a7a6a;font-size:14px;"&gt;${lv.subtitle}&lt;/span&gt;`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 名字輸入</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const nameRow = $("nameRow");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (isRetry) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nameRow.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nameRow.style.display = "flex";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const last = localStorage.getItem("yq_player_name") || "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("nameInput").value = last;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("saveScoreBtn").onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const name = ($("nameInput").value || "匿名同學").trim().slice(0, 12);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem("yq_player_name", name);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>addScore(state.levelIndex, {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>name, time, stars, wrong,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>date: new Date().toLocaleDateString("zh-HK")</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("saveScoreBtn").textContent = "已保存 ✓";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("saveScoreBtn").disabled = true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>$("saveScoreBtn").style.opacity = "0.7";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("saveScoreBtn").textContent = "保存成績";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("saveScoreBtn").disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>$("saveScoreBtn").style.opacity = "1";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 下一關</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const nextBtn = $("nextBtn");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (state.levelIndex &gt;= LEVELS.length - 1) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nextBtn.textContent = "返回地圖";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nextBtn.onclick = () =&gt; { closeWin(); backHome(); };</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nextBtn.textContent = "下一關 →";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>nextBtn.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>closeWin();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>startLevel(state.levelIndex + 1, "normal");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// 重練錯題</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const retryBtn = $("retryBtn");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const hasWrong = state.wrongIds.size &gt; 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (hasWrong &amp;&amp; lv.type === "match" &amp;&amp; !isRetry) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.style.display = "inline-block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.textContent = `重練錯題（${state.wrongIds.size}）`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>closeWin();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>startLevel(state.levelIndex, "retry", Array.from(state.wrongIds));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else if (hasWrong &amp;&amp; lv.type !== "match" &amp;&amp; !isRetry) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.style.display = "inline-block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.textContent = "再練一次";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>closeWin();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>startLevel(state.levelIndex, "retry");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>retryBtn.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winModal").classList.add("show");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>confetti();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>playSound(true);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function closeWin() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("winModal").classList.remove("show");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("confettiWrap").innerHTML = "";</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function confetti() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const wrap = $("confettiWrap");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>wrap.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const colors = ["#FFD166", "#EF476F", "#06D6A0", "#118AB2", "#FF9F1C", "#9B5DE5"];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for (let i = 0; i &lt; 50; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const d = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.className = "confetti";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.style.left = (Math.random() * 100) + "%";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.style.background = colors[Math.floor(Math.random() * colors.length)];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.style.animationDelay = (Math.random() * 0.6) + "s";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.style.animationDuration = (1.4 + Math.random() * 1.2) + "s";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.style.width = (6 + Math.random() * 8) + "px";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>d.style.height = (10 + Math.random() * 10) + "px";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>wrap.appendChild(d);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>排行榜頁</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function showRank() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("home").classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("game").classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("rank").classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderRank();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.scrollTo(0, 0);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderRank() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const wrap = $("rankContent");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const rank = getRank();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>wrap.innerHTML = "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>let hasAny = false;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>LEVELS.forEach((lv, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const arr = rank[i] || [];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (arr.length) hasAny = true;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const block = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>block.className = "rank-block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>block.style.setProperty("--rank-accent", lv.accent);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let tableHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!arr.length) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tableHTML = `&lt;div class="rank-empty"&gt;仲未有紀錄，快啲去挑戰！&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tableHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;table class="rank-table"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tr&gt;&lt;th&gt;名次&lt;/th&gt;&lt;th&gt;名字&lt;/th&gt;&lt;th&gt;星星&lt;/th&gt;&lt;th&gt;用時&lt;/th&gt;&lt;th&gt;錯誤&lt;/th&gt;&lt;th&gt;日期&lt;/th&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>${arr.slice(0, 5).map((r, idx) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const medal = idx === 0 ? "🥇" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : (idx + 1);</p>
+<p class="p1"><span class="Apple-converted-space">              </span>return `&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td class="medal"&gt;${medal}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${escapeHtml(r.name)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${"⭐".repeat(r.stars)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${fmtTime(r.time)}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${r.wrong}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td&gt;${r.date}&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}).join("")}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>block.innerHTML = `&lt;h3&gt;${lv.emoji} 第 ${i + 1} 關 · ${lv.name}&lt;/h3&gt;${tableHTML}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>wrap.appendChild(block);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!hasAny) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tip = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tip.className = "rank-block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tip.innerHTML = `&lt;div class="rank-empty" style="text-align:center;font-size:18px;padding:20px;"&gt;🏁 仲未有排行榜紀錄。完成任何一關並保存成績，就會出現在呢度。&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>wrap.prepend(tip);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function escapeHtml(s) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return String(s).replace(/[&amp;&lt;&gt;"']/g, c =&gt; ({</p>
+<p class="p1"><span class="Apple-converted-space">    </span>"&amp;": "&amp;amp;", "&lt;": "&amp;lt;", "&gt;": "&amp;gt;", '"': "&amp;quot;", "'": "&amp;#39;"</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}[c]));</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>返回</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">function backHome() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>stopTimer();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>closeWin();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if ("speechSynthesis" in window) window.speechSynthesis.cancel();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("game").classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("rank").classList.remove("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>$("home").classList.add("active");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderHome();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>window.scrollTo(0, 0);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* =========================================================</p>
+<p class="p1"><span class="Apple-converted-space">   </span>事件綁定</p>
+<p class="p1"><span class="Apple-converted-space">   </span>========================================================= */</p>
+<p class="p1">$("backBtn").addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (confirm("確定返回地圖？今次進度唔會保存。")) backHome();</p>
+<p class="p1">});</p>
+<p class="p1">$("homeBtn").addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>closeWin();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>backHome();</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">/* 初始化 */</p>
+<p class="p1">initVoices();</p>
+<p class="p1">renderHome();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
